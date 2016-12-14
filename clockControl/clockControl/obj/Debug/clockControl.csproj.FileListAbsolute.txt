@@ -1,0 +1,11 @@
+c:\users\ramachandran\documents\visual studio 2015\Projects\clockControl\clockControl\Bin\Debug\clockControl.dll
+c:\users\ramachandran\documents\visual studio 2015\Projects\clockControl\clockControl\Bin\Debug\clockControl.pdb
+c:\users\ramachandran\documents\visual studio 2015\Projects\clockControl\clockControl\Bin\Debug\AppManifest.xaml
+c:\users\ramachandran\documents\visual studio 2015\Projects\clockControl\clockControl\Bin\Debug\clockControl.xap
+c:\users\ramachandran\documents\visual studio 2015\Projects\clockControl\clockControl\Bin\Debug\clockControlTestPage.html
+c:\users\ramachandran\documents\visual studio 2015\Projects\clockControl\clockControl\obj\Debug\App.g.cs
+c:\users\ramachandran\documents\visual studio 2015\Projects\clockControl\clockControl\obj\Debug\MainPage.g.cs
+c:\users\ramachandran\documents\visual studio 2015\Projects\clockControl\clockControl\obj\Debug\clockControl.g.resources
+c:\users\ramachandran\documents\visual studio 2015\Projects\clockControl\clockControl\obj\Debug\clockControl.dll
+c:\users\ramachandran\documents\visual studio 2015\Projects\clockControl\clockControl\obj\Debug\clockControl.pdb
+c:\users\ramachandran\documents\visual studio 2015\Projects\clockControl\clockControl\obj\Debug\XapCacheFile.xml

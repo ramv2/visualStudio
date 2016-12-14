@@ -1,0 +1,15 @@
+C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\browser\bin\Debug\browser.exe.config
+C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\browser\bin\Debug\browser.exe
+C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\browser\bin\Debug\browser.pdb
+C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\browser\obj\Debug\Views\favoritesView.g.cs
+C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\browser\obj\Debug\Views\Greetings.g.cs
+C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\browser\obj\Debug\App.g.cs
+C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\browser\obj\Debug\browser_MarkupCompile.cache
+C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\browser\obj\Debug\browser_MarkupCompile.lref
+C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\browser\obj\Debug\Views\favoritesView.baml
+C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\browser\obj\Debug\Views\Greetings.baml
+C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\browser\obj\Debug\browser.g.resources
+C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\browser\obj\Debug\browser.Properties.Resources.resources
+C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\browser\obj\Debug\browser.csproj.GenerateResource.Cache
+C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\browser\obj\Debug\browser.exe
+C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\browser\obj\Debug\browser.pdb

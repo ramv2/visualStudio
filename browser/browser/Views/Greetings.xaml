@@ -1,0 +1,111 @@
+﻿<Window x:Class="browser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:browser"
+        mc:Ignorable="d"
+        Title="Welcome" Height="500" Width="1024" x:Name="main_window">
+
+    <Grid UseLayoutRounding="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="35*" MaxWidth="35" MinWidth="16"/>
+                <ColumnDefinition Width="35*" MaxWidth="35" MinWidth="16"/>
+                <ColumnDefinition Width="600*"/>
+                <ColumnDefinition Width="35*" MaxWidth="35" MinWidth="16"/>
+                <ColumnDefinition Width="35*" MaxWidth="35" MinWidth="16"/>
+                <ColumnDefinition Width="35*" MaxWidth="35" MinWidth="16"/>
+                <ColumnDefinition Width="35*" MaxWidth="35" MinWidth="16"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" x:Name="button_back" Margin="5" Background ="Transparent" BorderBrush="Transparent" Click="button_back_Click" ToolTip="Go back one page" Opacity="1">
+                <StackPanel>
+                    <Image Source="C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\icons\back.png"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="1" x:Name="button_forward" Margin="5" Background="Transparent" BorderBrush="Transparent" Click="button_forward_Click" ToolTip="Go forward one page" Opacity="1">
+                <StackPanel>
+                    <Image Source="C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\icons\forward.png" MaxHeight="24" MaxWidth="24"/>
+                </StackPanel>
+            </Button>
+
+            <ComboBox Grid.Column="2" x:Name="cb" Margin="5,7.5,5,5" VerticalAlignment="Top" KeyDown="cb_KeyDown" IsEditable="True" MaxDropDownHeight="150" MouseEnter="cb_MouseEnter"/>
+
+            <Button Grid.Column="3" x:Name="button_go" Margin="5" Background ="Transparent" BorderBrush="Transparent" Click="button_go_Click" ToolTip="Navigate to URL" Opacity="1">
+                <StackPanel>
+                    <Image Source="C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\icons\go.png" MaxHeight="24" MaxWidth="24"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="4" x:Name="button_stop" Margin="5" Background ="Transparent" BorderBrush="Transparent" Click="button_stop_Click" ToolTip="Stop loading the current page" Opacity="1">
+                <StackPanel>
+                    <Image Source="C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\icons\stop.png" MaxHeight="24" MaxWidth="24"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="5" x:Name="button_home" Margin="5" Background ="Transparent" BorderBrush="Transparent" Click="button_home_Click" ToolTip="Go to homepage" Opacity="1">
+                <StackPanel>
+                    <Image Source="C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\icons\home.png" MaxHeight="24" MaxWidth="24"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="6" x:Name="button_refresh" Margin="5" Background ="Transparent" BorderBrush="Transparent" Click="button_refresh_Click" ToolTip="Click button or press Ctrl + R to refresh current page" Opacity="1">
+                <StackPanel>
+                    <Image Source="C:\Users\Ramachandran\Documents\Visual Studio 2015\Projects\browser\icons\refresh.png" MaxHeight="24" MaxWidth="24"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <DockPanel Grid.Row="1" Margin="5">
+            <ToolBarTray DockPanel.Dock="Left" HorizontalAlignment="Left"/>
+            <ToolBar>
+                <Button x:Name="button_favorites" Margin="5,0,0,0" Content="Favorites" ToolTip="Opens the favorites menu" Click="button_favorites_Click"/>
+                <Button x:Name="button_close_other_tabs" Click="button_close_other_tabs_Click" ToolTip="Close other tabs" Opacity="1" Content="Close tabs" IsEnabled="False"></Button>
+            </ToolBar>
+            <ToolBar>
+                <Button x:Name="button_clear_history" Content="Clear history" Click="button_clear_history_Click" ToolTip="Clears the history" IsEnabled="False"></Button>
+                <Button x:Name="button_clear_favorites" Content="Clear favorites" Click="button_clear_favorties_Click" ToolTip="Clears the favorites" IsEnabled="False" VerticalAlignment="Top"/>
+            </ToolBar>
+        </DockPanel>
+        <TabControl Grid.Row="2" x:Name="tab_control" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Top" Background="Transparent" BorderBrush="Transparent">
+            <TabControl.Template>
+                <ControlTemplate TargetType="TabControl">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Hidden" >
+                            <TabPanel x:Name="HeaderPanel" Panel.ZIndex ="1" KeyboardNavigation.TabIndex="1" Grid.Column="0" Grid.Row="0" Margin="2,2,2,0" IsItemsHost="true"/>
+                        </ScrollViewer>
+                        <ContentPresenter x:Name="PART_SelectedContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Margin="{TemplateBinding Padding}" ContentSource="SelectedContent" Grid.Row="1"/>
+                    </Grid>
+                </ControlTemplate>
+            </TabControl.Template>
+            <TabControl.Resources>
+                <Style TargetType="TabItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TabItem">
+                                <Border CornerRadius="5" BorderThickness="1" BorderBrush="Black" x:Name="header_border">
+                                    <ContentPresenter ContentSource="Header">
+                                    </ContentPresenter>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="header_border" Property="Background" Value="LightBlue" />
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="False">
+                                        <Setter TargetName="header_border" Property="Background" Value="White" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TabControl.Resources>
+        </TabControl>
+    </Grid>
+</Window>

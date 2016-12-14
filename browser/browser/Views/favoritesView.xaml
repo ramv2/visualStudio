@@ -1,0 +1,63 @@
+﻿<Window x:Class="browser.favoritesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:browser"
+        mc:Ignorable="d"
+        Title="Favorites - options" Height="250" Width="400" x:Name="fav_window">
+    <Grid>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch">
+            <TabItem Header="Add New" ToolTip="Click to add a new favorite">
+                <Grid ScrollViewer.CanContentScroll="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="button_add_current_to_favs" Grid.Row="0" Grid.Column="0" Margin="5" Content="Add current to favs" Click="button_add_current_to_favs_Click" ToolTip="Adds the current tab's title and url to the fields below."></Button>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" Text="Title"></TextBlock>
+                    <TextBox x:Name="add_favs_title_tb" Grid.Row="1" Grid.Column="1" Margin="5" TextWrapping="WrapWithOverflow" MaxLength="15" TextChanged="add_favs_title_tb_TextChanged"></TextBox>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" Text="Address/Url"></TextBlock>
+                    <TextBox x:Name="add_favs_url_tb" Grid.Row="2" Grid.Column="1" Margin="5" TextWrapping="WrapWithOverflow" TextChanged="add_favs_url_tb_TextChanged" KeyDown="add_favs_url_tb_KeyDown"></TextBox>
+                    <WrapPanel Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="5">
+                        <Button x:Name="button_add_favs_ok" Margin="5" Content="OK" Click="button_add_favs_ok_Click" IsEnabled="False" ToolTip="Click to add new favorite."></Button>
+                        <Button x:Name="button_add_favs_cancel" Margin="5" Content="Exit" Click="button_add_favs_cancel_Click" ToolTip="Click to exit the favorites window."></Button>
+                    </WrapPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="View/Edit" ToolTip="Click to edit, delete or load an existing favorite item.">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="List of titles/keys" Margin="5"/>
+                    <ComboBox Grid.Row="0" Grid.Column="1" x:Name="fav_cb" ItemsSource="{Binding favorites}" Margin="5" MaxDropDownHeight="100" SelectionChanged="fav_cb_SelectionChanged" ToolTip="List of existing favorites"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" Text="Title"></TextBlock>
+                    <TextBox x:Name="edit_favs_title_tb" Grid.Row="1" Grid.Column="1" Margin="5" TextWrapping="WrapWithOverflow" Text="{Binding ElementName=fav_cb, Path=SelectedItem.title}" IsEnabled="False" TextChanged="edit_favs_title_tb_TextChanged" MaxLength="15"></TextBox>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" Text="Address/Url"></TextBlock>
+                    <TextBox x:Name="edit_favs_url_tb" Grid.Row="2" Grid.Column="1" Margin="5" TextWrapping="WrapWithOverflow" Text="{Binding ElementName=fav_cb,Path=SelectedItem.url}" IsEnabled="False" TextChanged="edit_favs_url_tb_TextChanged" KeyDown="edit_favs_url_tb_KeyDown"></TextBox>
+                    <WrapPanel Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="5">
+                        <Button x:Name="button_load_in_current_tab" Margin="5" Content="Load in current tab" Click="button_load_in_current_tab_Click" IsEnabled="False" ToolTip="Loads the current favorite item in the current tab."/>
+                        <Button x:Name="button_edit_favs" Margin="5" Content="Edit" Click="button_edit_favs_Click" IsEnabled="False" ToolTip="Click to edit/save the current favorite item."></Button>
+                        <Button x:Name="button_delete_favs" Margin="5" Content="Delete" Click="button_delete_favs_Click" IsEnabled="False" ToolTip="Click to delete the current favorite item."></Button>
+                        <Button x:Name="button_edit_favs_cancel" Margin="5" Content="Exit" Click="button_add_favs_cancel_Click" ToolTip="Click to exit the favorites window."></Button>
+                    </WrapPanel>
+                </Grid>
+            </TabItem>            
+        </TabControl>
+
+    </Grid>
+</Window>
